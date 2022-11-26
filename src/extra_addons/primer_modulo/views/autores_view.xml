@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<odoo>
+    <!-- Vista formulario para autores -->
+    <record id="autores_form_view" model="ir.ui.view">
+        <field name="name">autores.form.view</field>
+        <field name="model">autores</field>
+        <field name="arch" type="xml">
+            <form string="Autores">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="last_name"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista tree para autores -->
+    <record id="autores_tree_view" model="ir.ui.view">
+        <field name="name">autores.tree.view</field>
+        <field name="model">autores</field>
+        <field name="arch" type="xml">
+            <tree string="Autores">
+                <field name="name"/>
+                <field name="last_name"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<odoo>
+    <!-- Vista formulario para clases -->
+    <record id="clases_form_view" model="ir.ui.view">
+        <field name="name">clases.form.view</field>
+        <field name="model">wp.clases</field>
+        <field name="arch" type="xml">
+            <form string="Clases">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="titulo"/>
+                            <field name="orden"/>
+                            <field name="descripcion"/>
+                            <field name="duracion"/>
+                            <field name="estado"/>
+                            <field name="curso_id"/>
+                            <field name="contenido_line_ids"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista tree para clases -->
+    <record id="clases_tree_view" model="ir.ui.view">
+        <field name="name">clases.tree.view</field>
+        <field name="model">wp.clases</field>
+        <field name="arch" type="xml">
+            <tree string="Clases">
+                <field name="titulo"/>
+                <field name="orden"/>
+                <field name="descripcion"/>
+                <field name="duracion"/>
+                <field name="estado"/>
+                <field name="curso_id"/>
+                <field name="contenido_line_ids"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

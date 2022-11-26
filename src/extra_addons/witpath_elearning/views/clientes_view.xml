@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<odoo>
+    <!-- Vista formulario para clientes -->
+    <record id="clientes_form_view" model="ir.ui.view">
+        <field name="name">clientes.form.view</field>
+        <field name="model">wp.clientes</field>
+        <field name="arch" type="xml">
+            <form string="Clientes">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="razon_social"/>
+                            <field name="cuit"/>
+                            <field name="email"/>
+                            <field name="direccion"/>
+                            <field name="ciudad"/>
+                            <field name="provincia"/>
+                            <field name="pais"/>
+                            <field name="telefono"/>
+                            <field name="estado"/>
+                            <field name="cotizacion_line_ids"/>
+                            <field name="contacto_line_ids"/>
+                            <field name="alumno_line_ids"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista tree para clientes -->
+    <record id="clientes_tree_view" model="ir.ui.view">
+        <field name="name">clientes.tree.view</field>
+        <field name="model">wp.clientes</field>
+        <field name="arch" type="xml">
+            <tree string="Clientes">
+                <field name="razon_social"/>
+                <field name="cuit"/>
+                <field name="email"/>
+                <field name="direccion"/>
+                <field name="ciudad"/>
+                <field name="provincia"/>
+                <field name="pais"/>
+                <field name="telefono"/>
+                <field name="estado"/>
+                <field name="cotizacion_line_ids"/>
+                <field name="contacto_line_ids"/>
+                <field name="alumno_line_ids"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

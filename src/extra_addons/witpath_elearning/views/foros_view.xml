@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<odoo>
+    <!-- Vista formulario para foros -->
+    <record id="foros_form_view" model="ir.ui.view">
+        <field name="name">foros.form.view</field>
+        <field name="model">wp.foros</field>
+        <field name="arch" type="xml">
+            <form string="Foros">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="orden"/>
+                            <field name="titulo"/>
+                            <field name="estado"/>
+                            <field name="descripcion"/>
+                            <field name="cantidad_mensajes"/>
+                            <field name="clase"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista tree para foros -->
+    <record id="foros_tree_view" model="ir.ui.view">
+        <field name="name">foros.tree.view</field>
+        <field name="model">wp.foros</field>
+        <field name="arch" type="xml">
+            <tree string="Foros">
+                <field name="orden"/>
+                <field name="titulo"/>
+                <field name="estado"/>
+                <field name="descripcion"/>
+                <field name="cantidad_mensajes"/>
+                <field name="clase"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<odoo>
+    <!-- Vista formulario para cotizaciones -->
+    <record id="cotizaciones_form_view" model="ir.ui.view">
+        <field name="name">cotizaciones.form.view</field>
+        <field name="model">wp.cotizaciones</field>
+        <field name="arch" type="xml">
+            <form string="Cotizaciones">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="fecha_emision"/>
+                            <field name="fecha_inicio"/>
+                            <field name="fecha_fin"/>
+                            <field name="estado"/>
+                            <field name="cantidad_cursos"/>
+                            <field name="cantidad_alumnos"/>
+                            <field name="importe"/>
+                            <field name="iva"/>
+                            <field name="descuento"/>
+                            <field name="cliente_id"/>
+                            <field name="cursos"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista tree para cotizaciones -->
+    <record id="cotizaciones_tree_view" model="ir.ui.view">
+        <field name="name">cotizaciones.tree.view</field>
+        <field name="model">wp.cotizaciones</field>
+        <field name="arch" type="xml">
+            <tree string="Cotizaciones">
+                <field name="fecha_emision"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_fin"/>
+                <field name="estado"/>
+                <field name="cantidad_cursos"/>
+                <field name="cantidad_alumnos"/>
+                <field name="importe"/>
+                <field name="iva"/>
+                <field name="descuento"/>
+                <field name="cliente_id"/>
+                <field name="cursos"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

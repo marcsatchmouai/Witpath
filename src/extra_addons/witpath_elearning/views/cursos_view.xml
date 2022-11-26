@@ -1,0 +1,136 @@
+<?xml version="1.0" ?>
+<odoo>
+    <!-- Vista formulario para cursos -->
+    <record id="cursos_form_view" model="ir.ui.view">
+        <field name="name">curso.form.view</field>
+        <field name="model">wp.cursos</field>
+        <field name="arch" type="xml">
+            <form string="Curso">
+                <header>
+                    <button name="boton_activar" string="Activar" types="object" class="oe_highlight"/>
+                    <button name="boton_desactivar" string="Desactivar" types="object"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <notebook>
+                    <page name="public" string="Informacion">
+                        <sheet>
+                            <group>
+                                <group col="1">
+                                    <field name="image" widget="image" class="on_left oe_avatar" nolabel="1"/>
+                                </group>
+                                <group col="2"/>
+                                <group col="2" colspan="2">
+                                    <field name="nombre"/>
+                                    <field name="titulo"/>
+                                    <field name="subtitulo"/>
+                                    <field name="tema"/>
+                                    <field name="descripcion"/>
+                                    <field name="fecha_inicio"/>
+                                    <field name="fecha_fin"/>
+                                    <field name="dias_cursado"/>
+                                    <field name="horario_inicio" widget="float_time"/>
+                                    <field name="horario_finalizacion" widget="float_time"/>
+                                    <field name="clase_line_ids"/>
+                                    <field name="alumno_line_ids"/>
+                                </group>
+                            </group>
+                        </sheet>
+                        <div class="oe_chatter">
+                            <field name="message_follower_ids"/>
+                            <field name="activity_ids"/>
+                            <field name="message_ids"/>
+                        </div>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista tree para cursos -->
+    <record id="cursos_tree_view" model="ir.ui.view">
+        <field name="name">cursos.tree.view</field>
+        <field name="model">wp.cursos</field>
+        <field name="arch" type="xml">
+            <tree string="Cursos">
+                <field name="nombre"/>
+                <field name="titulo"/>
+                <field name="subtitulo"/>
+                <field name="tema"/>
+                <field name="descripcion"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_fin"/>
+                <field name="dias_cursado" optional="hide"/>
+                <field name="horario_inicio" optional="hide"/>
+                <field name="horario_finalizacion" optional="hide"/>
+                <field name="state" widget="badge" decoration-info="state == 'inactivo'" decoration-success="state == 'activo'"/>
+                <!-- <field name="clase_line_ids"/> -->
+                <!-- <field name="alumno_line_ids"/> -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista kanban para cursos -->
+    <record id="cursos_kanban_view" model="ir.ui.view">
+        <field name="name">curso.kanban.view</field>
+        <field name="model">wp.cursos</field>
+        <field name="arch" type="xml">
+            <kanban string="Cursos">
+                <field name="id"/>
+                <field name="nombre"/>
+                <field name="titulo"/>
+                <field name="subtitulo"/>
+                <field name="tema"/>
+                <field name="descripcion"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_fin"/>
+                <field name="dias_cursado"/>
+                <field name="horario_inicio"/>
+                <field name="horario_finalizacion"/>
+                <field name="state"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img t-att-src="kanban_image('wp.cursos', 'image', record.id.raw_value)" alt="Image"/>
+                            </div>
+                        </div>
+                        <div class="oe_kanban_details">
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_headings">
+                                    <strong class="o_kanban_record_title oe_partner_heading">
+                                        <field name="nombre"/>
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Vista busqueda para cursos -->
+    <!--<record id="cursos_search_view" model="ir.ui.view">
+        <field name="name">curso.search.view</field>
+        <field name="model">wp.cursos</field>
+        <field name="arch" type="xml">
+            <search>
+                &lt;!&ndash; Busqueda rapida &ndash;&gt;
+                <field name="name" string="Nombre del curso"/>
+
+                &lt;!&ndash; Filtro rapido &ndash;&gt;
+                <filter name="categoria_novela" string="Novela" domain="[('categoria_id', '=', 'Novela')]"/>
+
+                &lt;!&ndash; Agrupacion rapida &ndash;&gt;
+                <group expand="0" string="Agrupar por" colspan="12" col="10">
+                    <filter name="categoria" string="Categoria" context="{'group_by':'categoria_id'}"/>
+                    <filter name="autor" string="Autor" context="{'group_by':'autor_id'}"/>
+                </group>
+                <searchpanel>
+                    <field name="categoria_id" string="Categoria" icon="fa-users"/>
+                    <field name="autor_id" string="Autores"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>-->
+</odoo>

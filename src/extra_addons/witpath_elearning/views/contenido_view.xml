@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<odoo>
+    <!-- Vista formulario para contenido -->
+    <record id="contenido_form_view" model="ir.ui.view">
+        <field name="name">contenido.form.view</field>
+        <field name="model">wp.contenido</field>
+        <field name="arch" type="xml">
+            <form string="Contenido">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="orden"/>
+                            <field name="titulo"/>
+                            <field name="duracion"/>
+                            <field name="formato"/>
+                            <field name="estado"/>
+                            <field name="descripcion"/>
+                            <field name="clase_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista tree para contenido -->
+    <record id="contenido_tree_view" model="ir.ui.view">
+        <field name="name">contenido.tree.view</field>
+        <field name="model">wp.contenido</field>
+        <field name="arch" type="xml">
+            <tree string="Contenido">
+                <field name="orden"/>
+                <field name="titulo"/>
+                <field name="duracion"/>
+                <field name="formato"/>
+                <field name="estado"/>
+                <field name="descripcion"/>
+                <field name="clase_id"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
