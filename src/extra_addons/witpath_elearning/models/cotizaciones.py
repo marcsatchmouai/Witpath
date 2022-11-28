@@ -7,6 +7,7 @@ class Cotizaciones(models.Model):
 
     fecha_emision = fields.Date('Fecha emision')
     fecha_inicio = fields.Date('Fecha de inicio')
+    fecha_aceptacion = fields.Date('Fecha de aceptacion')
     fecha_fin = fields.Date('Fecha de finalizacion')
     estado = fields.Selection(
         [('pendiente', 'Pendiente'),
@@ -21,7 +22,7 @@ class Cotizaciones(models.Model):
     descuento = fields.Float('Descuento')
 
     # relaciones entre tablas
-    cliente_id = fields.Many2one(comodel_name='wp.clientes', string='Cliente')
+    cliente = fields.Many2one(comodel_name='wp.clientes', string='Cliente')
     cursos = fields.Many2many(comodel_name='wp.cursos', string='Cursos')
 
 

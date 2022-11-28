@@ -8,19 +8,18 @@
             <form string="Cotizaciones">
                 <sheet>
                     <group>
-                        <group>
-                            <field name="fecha_emision"/>
-                            <field name="fecha_inicio"/>
-                            <field name="fecha_fin"/>
-                            <field name="estado"/>
-                            <field name="cantidad_cursos"/>
-                            <field name="cantidad_alumnos"/>
-                            <field name="importe"/>
-                            <field name="iva"/>
-                            <field name="descuento"/>
-                            <field name="cliente_id"/>
-                            <field name="cursos"/>
-                        </group>
+                        <field name="fecha_emision"/>
+                        <field name="fecha_inicio"/>
+                        <field name="fecha_aceptacion"/>
+                        <field name="fecha_fin"/>
+                        <field name="estado"/>
+                        <field name="cantidad_cursos"/>
+                        <field name="cantidad_alumnos"/>
+                        <field name="importe"/>
+                        <field name="iva"/>
+                        <field name="descuento"/>
+                        <field name="cliente"/>
+                        <field name="cursos"/>
                     </group>
                 </sheet>
             </form>
@@ -35,6 +34,7 @@
             <tree string="Cotizaciones">
                 <field name="fecha_emision"/>
                 <field name="fecha_inicio"/>
+                <field name="fecha_aceptacion"/>
                 <field name="fecha_fin"/>
                 <field name="estado"/>
                 <field name="cantidad_cursos"/>
@@ -42,7 +42,7 @@
                 <field name="importe"/>
                 <field name="iva"/>
                 <field name="descuento"/>
-                <field name="cliente_id"/>
+                <field name="cliente" widget="selection"/>
                 <field name="cursos"/>
             </tree>
         </field>

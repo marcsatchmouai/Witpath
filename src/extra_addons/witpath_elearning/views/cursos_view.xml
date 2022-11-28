@@ -6,42 +6,61 @@
         <field name="model">wp.cursos</field>
         <field name="arch" type="xml">
             <form string="Curso">
-                <header>
-                    <button name="boton_activar" string="Activar" types="object" class="oe_highlight"/>
-                    <button name="boton_desactivar" string="Desactivar" types="object"/>
-                    <field name="state" widget="statusbar"/>
-                </header>
-                <notebook>
-                    <page name="public" string="Informacion">
-                        <sheet>
-                            <group>
-                                <group col="1">
-                                    <field name="image" widget="image" class="on_left oe_avatar" nolabel="1"/>
-                                </group>
-                                <group col="2"/>
-                                <group col="2" colspan="2">
-                                    <field name="nombre"/>
-                                    <field name="titulo"/>
-                                    <field name="subtitulo"/>
-                                    <field name="tema"/>
+                <sheet>
+                    <header>
+                        <button name="btn_activar" string="Activar" type="object" states="inactivo" class="oe_highlight"/>
+                        <button name="btn_desactivar" string="Desactivar" type="object" states="activo"/>
+                        <field name="state" widget="statusbar" />
+                    </header>
+                    <group col="1">
+                        <field name="image" widget="image" class="on_left oe_avatar" nolabel="1"/>
+                    </group>
+                    <group col="2"/>
+                    <group col="2" colspan="2">
+                        <field name="nombre"/>
+                        <field name="titulo"/>
+                        <field name="subtitulo"/>
+                        <field name="tema"/>
+                    </group>
+                    <notebook>
+                        <page name="public" string="Informacion">
+                            <sheet>
+                                <group>
                                     <field name="descripcion"/>
                                     <field name="fecha_inicio"/>
                                     <field name="fecha_fin"/>
                                     <field name="dias_cursado"/>
                                     <field name="horario_inicio" widget="float_time"/>
                                     <field name="horario_finalizacion" widget="float_time"/>
-                                    <field name="clase_line_ids"/>
-                                    <field name="alumno_line_ids"/>
+                                    <field name="precio"/>
                                 </group>
-                            </group>
-                        </sheet>
-                        <div class="oe_chatter">
-                            <field name="message_follower_ids"/>
-                            <field name="activity_ids"/>
-                            <field name="message_ids"/>
-                        </div>
-                    </page>
-                </notebook>
+                            </sheet>
+
+                        </page>
+                        <page name="public" string="Clases">
+                           <group>
+                                <field name="clase_line_ids"/>
+                           </group>
+                        </page>
+                        <page name="public" string="Alumnos">
+                           <group>
+                                <field name="alumno_line_ids"/>
+                           </group>
+                        </page>
+                        <page name="public" string="Foros">
+                           <group>
+                                <field name="foro_line_ids"/>
+                           </group>
+                        </page>
+                    </notebook>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </sheet>
+
+
             </form>
         </field>
     </record>
@@ -62,9 +81,8 @@
                 <field name="dias_cursado" optional="hide"/>
                 <field name="horario_inicio" optional="hide"/>
                 <field name="horario_finalizacion" optional="hide"/>
+                <field name="precio"/>
                 <field name="state" widget="badge" decoration-info="state == 'inactivo'" decoration-success="state == 'activo'"/>
-                <!-- <field name="clase_line_ids"/> -->
-                <!-- <field name="alumno_line_ids"/> -->
             </tree>
         </field>
     </record>
@@ -86,6 +104,7 @@
                 <field name="dias_cursado"/>
                 <field name="horario_inicio"/>
                 <field name="horario_finalizacion"/>
+                <field name="precio"/>
                 <field name="state"/>
                 <templates>
                     <t t-name="kanban-box">

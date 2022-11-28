@@ -7,16 +7,15 @@
         <field name="arch" type="xml">
             <form string="Contenido">
                 <sheet>
+                    <header>
+                        <button name="btn_activar" string="Activar" type="object" states="inactivo" class="oe_highlight"/>
+                        <button name="btn_desactivar" string="Desactivar" type="object" states="activo"/>
+                        <field name="state" widget="statusbar" />
+                    </header>
                     <group>
-                        <group>
-                            <field name="orden"/>
-                            <field name="titulo"/>
-                            <field name="duracion"/>
-                            <field name="formato"/>
-                            <field name="estado"/>
-                            <field name="descripcion"/>
-                            <field name="clase_id"/>
-                        </group>
+                        <field name="orden"/>
+                        <field name="titulo"/>
+                        <field name="formato"/>
                     </group>
                 </sheet>
             </form>
@@ -31,11 +30,7 @@
             <tree string="Contenido">
                 <field name="orden"/>
                 <field name="titulo"/>
-                <field name="duracion"/>
                 <field name="formato"/>
-                <field name="estado"/>
-                <field name="descripcion"/>
-                <field name="clase_id"/>
             </tree>
         </field>
     </record>

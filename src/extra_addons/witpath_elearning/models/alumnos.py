@@ -12,14 +12,17 @@ class Alumnos(models.Model):
     grado = fields.Char(string="Grado")
     division = fields.Char(string="Division")
     turno = fields.Char(string="Turno")
-    institucion = fields.Char(string="Institucion", required=True)
-    estado = fields.Selection(
+    state = fields.Selection(
         [('activo', 'Activo'),
          ('inactivo', 'Inactivo')],
-        default='activo')
+        default='inactivo', string="Estado")
 
     # relaciones entre tablas
     cliente_id = fields.Many2one(comodel_name='wp.clientes', string='Cliente')
     curso_id = fields.Many2one(comodel_name='wp.cursos', string='Curso')
 
+    def btn_activar(self):
+        self.state = 'activo'
 
+    def btn_desactivar(self):
+        self.state = 'inactivo'

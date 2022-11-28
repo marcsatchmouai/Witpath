@@ -42,10 +42,16 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+    <record id="gestion_cursos_action" model="ir.actions.act_window">
+        <field name="name">Gestion Cursos</field>
+        <field name="res_model">wp.cursos</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
     <record id="cursos_action" model="ir.actions.act_window">
         <field name="name">Cursos</field>
         <field name="res_model">wp.cursos</field>
-        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_mode">kanban</field>
     </record>
 
     <record id="foros_action" model="ir.actions.act_window">
@@ -54,14 +60,19 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem name="Witpath" id="witpath_menu"/>
-    <menuitem name="Alumnos" id="alumnos_menu" parent="witpath_menu" action="alumnos_action"/>
-    <menuitem name="Clases" id="clases_menu" parent="witpath_menu" action="clases_action"/>
-    <menuitem name="Clientes" id="clientes_menu" parent="witpath_menu" action="clientes_action"/>
-    <menuitem name="Contactos" id="contactos_menu" parent="witpath_menu" action="contactos_action"/>
-    <menuitem name="Contenido" id="contenido_menu" parent="witpath_menu" action="contenido_action"/>
-    <menuitem name="Contratos" id="contratos_menu" parent="witpath_menu" action="contratos_action"/>
-    <menuitem name="Cotizaciones" id="cotizaciones_menu" parent="witpath_menu" action="cotizaciones_action"/>
+    <menuitem name="WitPath" id="witpath_menu"/>
+    <menuitem name="Gestion Cursos" id="gestion_menu" parent="witpath_menu" action="gestion_cursos_action"/>
     <menuitem name="Cursos" id="cursos_menu" parent="witpath_menu" action="cursos_action"/>
-    <menuitem name="Foros" id="foros_menu" parent="witpath_menu" action="foros_action"/>
+    <menuitem name="Clientes" id="clientes_menu" parent="witpath_menu" action="clientes_action"/>
+    <menuitem name="Cotizaciones" id="cotizaciones_menu" parent="witpath_menu" action="cotizaciones_action"/>
+
+    <!-- <menuitem name="Alumnos" id="alumnos_menu" parent="witpath_menu" action="alumnos_action"/> -->
+    <!-- <menuitem name="Clases" id="clases_menu" parent="witpath_menu" action="clases_action"/> -->
+
+    <!-- <menuitem name="Contactos" id="contactos_menu" parent="witpath_menu" action="contactos_action"/> -->
+    <!-- <menuitem name="Contenido" id="contenido_menu" parent="witpath_menu" action="contenido_action"/> -->
+    <!-- <menuitem name="Contratos" id="contratos_menu" parent="witpath_menu" action="contratos_action"/> -->
+
+    <!-- <menuitem name="Foros" id="foros_menu" parent="witpath_menu" action="foros_action"/> -->
+    <!-- <menuitem name="Dashboard" id="dashboard_menu" parent="witpath_menu" action="dashboard_action"/> -->
 </odoo>

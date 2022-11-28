@@ -17,15 +17,19 @@ class Cursos(models.Model):
     dias_cursado = fields.Char(string="Dias de cursado")
     horario_inicio = fields.Float(string="Horario de inicio")
     horario_finalizacion = fields.Float(string="Horario de finalizacion")
-    state = fields.Selection([('activo', 'Activo'), ('inactivo', 'Inactivo')], default='activo')
+    state = fields.Selection([('activo', 'Activo'), ('inactivo', 'Inactivo')], default='activo', string="Estado")
     precio = fields.Float(string="Precio")
 
     # relaciones entre tablas
     clase_line_ids = fields.One2many('wp.clases', 'curso_id', 'Clases')
     alumno_line_ids = fields.One2many('wp.alumnos', 'curso_id', 'Alumnos')
+    foro_line_ids = fields.One2many('wp.foros', 'curso_id', 'Foros')
 
-    def boton_activar(self):
-        print('PRUEBA CLICK ACTIVAR')
+    def btn_activar(self):
+        self.state = 'activo'
+
+    def btn_desactivar(self):
+        self.state = 'inactivo'
 
     # restricciones sql
     _sql_constraints = [('orden_uniq', 'unique(nombre)', 'El nombre ya existe')]

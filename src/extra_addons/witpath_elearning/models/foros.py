@@ -16,6 +16,7 @@ class Foros(models.Model):
 
     # relaciones entre tablas
     clase = fields.Many2one(comodel_name='wp.clases', string='Clase')
+    curso_id = fields.Many2one(comodel_name='wp.cursos', string='Curso')
 
     # restricciones sql
     _sql_constraints = [('orden_uniq', 'unique(orden)', 'El numero de orden ya existe')]
