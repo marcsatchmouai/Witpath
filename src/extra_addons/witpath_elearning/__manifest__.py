@@ -34,6 +34,9 @@
         'security/ir.model.access.csv'
     ],
     # only loaded in demonstration mode
+    'demo': [
+        'demo/demo.xml'
+    ],
     'instalable': True,
     'application': True
 }
