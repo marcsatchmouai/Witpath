@@ -7,19 +7,35 @@
         <field name="arch" type="xml">
             <form string="Cotizaciones">
                 <sheet>
+                    <header>
+                        <field name="state" widget="statusbar" />
+                    </header>
                     <group>
-                        <field name="fecha_emision"/>
-                        <field name="fecha_inicio"/>
-                        <field name="fecha_aceptacion"/>
-                        <field name="fecha_fin"/>
-                        <field name="estado"/>
-                        <field name="cantidad_cursos"/>
-                        <field name="cantidad_alumnos"/>
-                        <field name="importe"/>
-                        <field name="iva"/>
-                        <field name="descuento"/>
-                        <field name="cliente"/>
-                        <field name="cursos"/>
+                        <group name="group_left">
+                            <field name="cliente"/>
+                        </group>
+                        <group  name="group_right">
+                            <field name="fecha_emision"/>
+                            <field name="fecha_aceptacion"/>
+                            <field name="fecha_inicio"/>
+                            <field name="fecha_fin"/>
+                            <field name="cantidad_cursos"/>
+                            <field name="cantidad_alumnos"/>
+                        </group>
+                    </group>
+                     <notebook>
+                        <page name="public" string="Detalle">
+                                <group>
+                                    <field name="cursos"/>
+                                </group>
+                        </page>
+                     </notebook>
+                    <group>
+                        <group>
+                            <field name="importe"/>
+                            <field name="descuento"/>
+                            <field name="iva"/>
+                        </group>
                     </group>
                 </sheet>
             </form>
@@ -31,12 +47,12 @@
         <field name="name">cotizaciones.tree.view</field>
         <field name="model">wp.cotizaciones</field>
         <field name="arch" type="xml">
-            <tree string="Cotizaciones">
+            <tree string="Cotizaciones" decoration-success="state == 'pendiente'" decoration-info="state == 'aceptada'" decoration-danger="state == 'vencida'" decoration-muted="state == 'cancelada'">
                 <field name="fecha_emision"/>
                 <field name="fecha_inicio"/>
                 <field name="fecha_aceptacion"/>
                 <field name="fecha_fin"/>
-                <field name="estado"/>
+                <field name="state" widget="badge" decoration-info="state == 'pendiente'" decoration-success="state == 'aceptada'" decoration-danger="state == 'vencida'" decoration-muted="state == 'cancelada'"/>
                 <field name="cantidad_cursos"/>
                 <field name="cantidad_alumnos"/>
                 <field name="importe"/>

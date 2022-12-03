@@ -22,7 +22,6 @@
     'data': [
         'views/menu_view.xml',
         'views/libros_view.xml',
-        'security/e_learning_security.xml',
         'security/ir.model.access.csv'
 
     ],
