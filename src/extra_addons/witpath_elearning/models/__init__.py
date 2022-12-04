@@ -7,5 +7,6 @@ from . import \
     contratos, \
     cotizaciones, \
     cursos, \
-    foros
+    foros, \
+    cotizacion_detalle
 

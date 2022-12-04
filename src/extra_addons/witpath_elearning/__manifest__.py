@@ -29,6 +29,7 @@
         'views/cotizaciones_view.xml',
         'views/cursos_view.xml',
         'views/foros_view.xml',
+        'views/cotizacion_detalle_view.xml',
         'views/menu_view.xml',
         'security/witpath_security.xml',
         'security/ir.model.access.csv'

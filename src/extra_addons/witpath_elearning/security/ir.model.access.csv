@@ -8,3 +8,4 @@ access_contratos_user,Acceso a contratos,model_wp_contratos,witpath_group_user,1
 access_cotizaciones_user,Acceso a cotizaciones,model_wp_cotizaciones,witpath_group_user,1,1,1,1
 access_cursos_user,Acceso a cursos,model_wp_cursos,witpath_group_user,1,1,1,1
 access_foros_user,Acceso a foros,model_wp_foros,witpath_group_user,1,1,1,1
+access_cotizacion_detalle_user,Acceso a detalle cotizacion,model_wp_cotizaciones_detalle,witpath_group_user,1,1,1,1
