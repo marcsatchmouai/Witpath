@@ -7,16 +7,21 @@ class Foros(models.Model):
 
     orden = fields.Integer(string="Orden", required=True)
     titulo = fields.Char(string="Titulo", required=True)
-    estado = fields.Selection(
+    state = fields.Selection(
         [('activo', 'Activo'),
          ('inactivo', 'Inactivo')],
         default='activo')
     descripcion = fields.Char(string="Descripcion", required=True)
-    cantidad_mensajes = fields.Integer(string='Cantidad de Mensajes')
 
     # relaciones entre tablas
-    clase = fields.Many2one(comodel_name='wp.clases', string='Clase')
+    clase_id = fields.Many2one(comodel_name='wp.clases', string='Clase')
     curso_id = fields.Many2one(comodel_name='wp.cursos', string='Curso')
 
     # restricciones sql
-    _sql_constraints = [('orden_uniq', 'unique(orden)', 'El numero de orden ya existe')]
+    _sql_constraints = [('foro_orden_uniq', 'unique(orden)', 'El numero de orden ya existe')]
+
+    def btn_activar(self):
+        self.state = 'activo'
+
+    def btn_desactivar(self):
+        self.state = 'inactivo'

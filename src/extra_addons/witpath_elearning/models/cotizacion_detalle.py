@@ -12,3 +12,14 @@ class CotizacionesLines(models.Model):
 
     cotizacion_id = fields.Many2one(comodel_name='wp.cotizaciones', string='Cotizacion', required=True)
 
+    @api.onchange("curso_id")
+    def _onchange_curso_id(self):
+        if self.curso_id:
+            self.importe_unitario = self.curso_id.precio
+            if self.cantidad:
+                self.subtotal = self.importe_unitario * self.cantidad
+
+    @api.onchange("cantidad")
+    def _onchange_cantidad(self):
+        if self.curso_id and self.cantidad:
+            self.subtotal = self.importe_unitario * self.cantidad

@@ -15,7 +15,6 @@
                             <field name="estado"/>
                             <field name="cantidad_alumnos"/>
                             <field name="importe"/>
-                            <field name="cliente_id"/>
                             <field name="cotizacion_id"/>
                         </group>
                     </group>
@@ -36,7 +35,6 @@
                 <field name="estado"/>
                 <field name="cantidad_alumnos"/>
                 <field name="importe"/>
-                <field name="cliente_id"/>
                 <field name="cotizacion_id"/>
             </tree>
         </field>

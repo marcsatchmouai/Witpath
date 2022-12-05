@@ -20,6 +20,7 @@
 
     # always loaded
     'data': [
+        'data/sequence.xml',
         'views/alumnos_view.xml',
         'views/clases_view.xml',
         'views/clientes_view.xml',

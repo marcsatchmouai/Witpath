@@ -14,7 +14,6 @@
                             <field name="area"/>
                             <field name="funcion"/>
                             <field name="telefono"/>
-                            <!-- <field name="cliente_id"/> -->
                         </group>
                     </group>
                 </sheet>
@@ -33,7 +32,6 @@
                 <field name="area"/>
                 <field name="funcion"/>
                 <field name="telefono"/>
-                <!-- <field name="cliente_id"/> -->
             </tree>
         </field>
     </record>

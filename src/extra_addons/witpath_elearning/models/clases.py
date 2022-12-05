@@ -5,7 +5,7 @@ class Clases(models.Model):
     _name = 'wp.clases'
     _description = 'clases'
 
-    titulo = fields.Char(string="Titulo", required=True)
+    name = fields.Char(string="Titulo", required=True)
     orden = fields.Integer(string="Orden", required=True)
     duracion = fields.Float(string="Duracion")
     state = fields.Selection(
@@ -16,6 +16,9 @@ class Clases(models.Model):
     # relaciones entre tablas
     curso_id = fields.Many2one(comodel_name='wp.cursos', string='Curso')
     contenido_line_ids = fields.One2many('wp.contenido', 'clase_id', string='Contenido')
+
+    # restricciones sql
+    _sql_constraints = [('clase_orden_uniq', 'unique(orden)', 'El orden ya existe')]
 
     def btn_activar(self):
         self.state = 'activo'

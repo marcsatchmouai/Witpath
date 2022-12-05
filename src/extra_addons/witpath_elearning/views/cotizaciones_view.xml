@@ -24,25 +24,31 @@
                         </group>
                         <group  name="group_right">
                             <field name="fecha_emision"/>
-                            <field name="fecha_vigencia"/>
-                            <field name="fecha_aceptacion" attrs="{'readonly': [('state', '=', 'cancelada')]}"/>
-                            <field name="cantidad_cursos" attrs="{'readonly': [('state', '=', 'cancelada')]}"/>
-                            <field name="cantidad_alumnos" attrs="{'readonly': [('state', '=', 'cancelada')]}"/>
+                            <field name="fecha_vigencia" readonly="1" force_save="1"/>
+                            <field name="fecha_aceptacion" attrs="{'readonly': ['|',('state', '=', 'cancelada'), ('state', '=', 'aceptada')]}" force_save="1"/>
+                            <field name="cantidad_cursos" readonly="1" force_save="1"/>
+                            <field name="cantidad_alumnos" readonly="1" force_save="1"/>
                         </group>
                     </group>
                     <group>
                         <field name="cotizacion_detalle_line_ids" attrs="{'readonly': [('state', '=', 'cancelada')]}"/>
                     </group>
                     <group>
+                        <group></group>
                         <group>
-                            <field name="importe" attrs="{'readonly': [('state', '=', 'cancelada')]}"/>
-                            <field name="descuento" attrs="{'readonly': [('state', '=', 'cancelada')]}"/>
-                            <field name="iva" attrs="{'readonly': [('state', '=', 'cancelada')]}"/>
+                            <group></group>
+                            <group>
+                                <field name="importe" readonly="1" force_save="1"/>
+                                <field name="descuento" attrs="{'readonly': [('state', '=', 'cancelada')]}"/>
+                                <field name="iva" readonly="1" force_save="1"/>
+                                <field name="total" readonly="1" force_save="1"/>
+                            </group>
                         </group>
                     </group>
                 </sheet>
             </form>
         </field>
+
     </record>
 
     <!-- Vista tree para cotizaciones -->
@@ -50,7 +56,9 @@
         <field name="name">cotizaciones.tree.view</field>
         <field name="model">wp.cotizaciones</field>
         <field name="arch" type="xml">
-            <tree string="Cotizaciones" decoration-success="state == 'pendiente'" decoration-info="state == 'aceptada'" decoration-danger="state == 'vencida'" decoration-muted="state == 'cancelada'">
+            <tree string="Cotizaciones" decoration-info="state == 'pendiente'" decoration-success="state == 'aceptada'" decoration-danger="state == 'vencida'" decoration-muted="state == 'cancelada'">
+                <field name="id"/>
+                <field name="cliente" widget="selection"/>
                 <field name="fecha_emision"/>
                 <field name="fecha_vigencia"/>
                 <field name="fecha_aceptacion"/>
@@ -58,8 +66,9 @@
                 <field name="cantidad_cursos"/>
                 <field name="cantidad_alumnos"/>
                 <field name="importe"/>
-                <field name="cliente" widget="selection"/>
+                <field name="total"/>
             </tree>
         </field>
     </record>
+
 </odoo>

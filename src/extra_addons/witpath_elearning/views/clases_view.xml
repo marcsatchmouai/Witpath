@@ -13,7 +13,7 @@
                         <field name="state" widget="statusbar" />
                     </header>
                     <group>
-                        <field name="titulo"/>
+                        <field name="name"/>
                         <field name="orden"/>
                         <field name="duracion" widget="float_time"/>
                         <field name="contenido_line_ids"/>
@@ -29,7 +29,7 @@
         <field name="model">wp.clases</field>
         <field name="arch" type="xml">
             <tree string="Clases">
-                <field name="titulo"/>
+                <field name="name"/>
                 <field name="orden"/>
                 <field name="duracion" widget="float_time"/>
                 <field name="state"/>

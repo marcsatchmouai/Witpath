@@ -7,7 +7,7 @@ class Cursos(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     image = fields.Binary(string="Imagen")
-    nombre = fields.Char(string="Nombre", required=True, tracking=True)
+    name = fields.Char(string="Nombre", required=True, tracking=True)
     titulo = fields.Char(string="Titulo", required=True)
     subtitulo = fields.Char(string="Subtitulo", required=True)
     tema = fields.Char(string="Tema", required=True)
@@ -22,7 +22,8 @@ class Cursos(models.Model):
 
     # relaciones entre tablas
     clase_line_ids = fields.One2many('wp.clases', 'curso_id', 'Clases')
-    alumno_line_ids = fields.One2many('wp.alumnos', 'curso_id', 'Alumnos')
+    # alumno_line_ids = fields.One2many('wp.alumnos', 'curso_id', 'Alumnos')
+    alumno_line_ids = fields.Many2many(comodel_name='wp.alumnos', string='Alumnos')
     foro_line_ids = fields.One2many('wp.foros', 'curso_id', 'Foros')
 
     def btn_activar(self):
@@ -32,5 +33,5 @@ class Cursos(models.Model):
         self.state = 'inactivo'
 
     # restricciones sql
-    _sql_constraints = [('orden_uniq', 'unique(nombre)', 'El nombre ya existe')]
+    _sql_constraints = [('name_uniq', 'unique(name)', 'El nombre ya existe')]
 

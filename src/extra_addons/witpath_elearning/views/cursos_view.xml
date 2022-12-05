@@ -17,7 +17,7 @@
                     </group>
                     <group col="2"/>
                     <group col="2" colspan="2">
-                        <field name="nombre"/>
+                        <field name="name"/>
                         <field name="titulo"/>
                         <field name="subtitulo"/>
                         <field name="tema"/>
@@ -71,7 +71,7 @@
         <field name="model">wp.cursos</field>
         <field name="arch" type="xml">
             <tree string="Cursos">
-                <field name="nombre"/>
+                <field name="name"/>
                 <field name="titulo"/>
                 <field name="subtitulo"/>
                 <field name="tema"/>
@@ -93,8 +93,7 @@
         <field name="model">wp.cursos</field>
         <field name="arch" type="xml">
             <kanban string="Cursos">
-                <field name="id"/>
-                <field name="nombre"/>
+                <field name="name"/>
                 <field name="titulo"/>
                 <field name="subtitulo"/>
                 <field name="tema"/>
@@ -117,7 +116,7 @@
                             <div class="o_kanban_record_top">
                                 <div class="o_kanban_record_headings">
                                     <strong class="o_kanban_record_title oe_partner_heading">
-                                        <field name="nombre"/>
+                                        <field name="name"/>
                                     </strong>
                                 </div>
                             </div>
