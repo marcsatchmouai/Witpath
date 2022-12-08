@@ -9,10 +9,8 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="fecha_emision"/>
                             <field name="fecha_inicio"/>
                             <field name="fecha_fin"/>
-                            <field name="estado"/>
                             <field name="cantidad_alumnos"/>
                             <field name="importe"/>
                             <field name="cotizacion_id"/>
@@ -29,10 +27,8 @@
         <field name="model">wp.contratos</field>
         <field name="arch" type="xml">
             <tree string="Contratos">
-                <field name="fecha_emision"/>
                 <field name="fecha_inicio"/>
                 <field name="fecha_fin"/>
-                <field name="estado"/>
                 <field name="cantidad_alumnos"/>
                 <field name="importe"/>
                 <field name="cotizacion_id"/>

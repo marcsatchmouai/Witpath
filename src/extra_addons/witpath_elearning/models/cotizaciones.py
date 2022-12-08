@@ -5,6 +5,7 @@ from datetime import datetime, timedelta
 class Cotizaciones(models.Model):
     _name = 'wp.cotizaciones'
     _description = 'cotizaciones'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     # nro_cotizacion = fields.Char(string="Nro. Cotizacion", readonly=True, required=True, copy=False, default='New')
     id = fields.Integer(string='Nro. Cotizacion', readonly=True)
@@ -23,6 +24,7 @@ class Cotizaciones(models.Model):
     iva = fields.Float('IVA (21%)')
     total = fields.Float('Total')
     descuento = fields.Float('Descuento (%)')
+    cliente_id = fields.Integer(string='Cliente_id', related='cliente.id', readonly=True)
     cuit = fields.Char(string='Cuit', related='cliente.cuit', readonly=True)
     direccion = fields.Char(string='Direccion', related='cliente.direccion', readonly=True)
     telefono = fields.Char(string='Telefono', related='cliente.telefono', readonly=True)
@@ -37,6 +39,13 @@ class Cotizaciones(models.Model):
     @api.onchange("fecha_aceptacion")
     def _onchange_fecha_aceptacion(self):
         if self.fecha_emision and self.fecha_aceptacion:
+            if self.cantidad_cursos == 0:
+                self.fecha_aceptacion = ''
+                return {
+                    'warning': {
+                        'title': '¡Advertencia!',
+                        'message': 'No se puede aceptar una cotizacion sin cursos cargados'}
+                }
             vencimiento = self.fecha_emision + timedelta(days=10)
             if self.fecha_aceptacion <= vencimiento:
                 self.state = "aceptada"
@@ -87,6 +96,18 @@ class Cotizaciones(models.Model):
 
     def btn_cancelar(self):
         self.state = 'cancelada'
+
+    def btn_ver_contrato(self):
+        dic = {
+            'fecha_inicio': self.fecha_aceptacion,
+            'fecha_fin': self.fecha_emision,
+            'cantidad_alumnos': self.cantidad_alumnos,
+            'importe': self.total,
+            'cliente_id': self.cliente_id,
+            'cotizacion_id': self.id
+        }
+        self.env['wp.contratos'].create(dic)
+        print("Contrato")
 
     # @api.model
     # def create(self, vals):

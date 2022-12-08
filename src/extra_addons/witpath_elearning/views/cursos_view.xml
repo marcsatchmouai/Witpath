@@ -12,15 +12,16 @@
                         <button name="btn_desactivar" string="Desactivar" type="object" states="activo"/>
                         <field name="state" widget="statusbar" />
                     </header>
-                    <group col="1">
-                        <field name="image" widget="image" class="on_left oe_avatar" nolabel="1"/>
-                    </group>
-                    <group col="2"/>
-                    <group col="2" colspan="2">
-                        <field name="name"/>
-                        <field name="titulo"/>
-                        <field name="subtitulo"/>
-                        <field name="tema"/>
+                    <group>
+                        <group>
+                            <field name="name" style="font-size:24px"/>
+                            <field name="titulo"/>
+                            <field name="subtitulo"/>
+                            <field name="tema"/>
+                        </group>
+                        <group>
+                            <field name="image" widget="image" class="on_left oe_avatar" nolabel="1" options="{'size': [250, 250]}"/>
+                        </group>
                     </group>
                     <notebook>
                         <page name="public" string="Informacion">
@@ -59,8 +60,6 @@
                         <field name="message_ids"/>
                     </div>
                 </sheet>
-
-
             </form>
         </field>
     </record>

@@ -42,7 +42,7 @@
                 <field name="grado"/>
                 <field name="division"/>
                 <field name="turno"/>
-                <field name="state"/>
+                <field name="state" widget="badge" decoration-info="state == 'inactivo'" decoration-success="state == 'activo'"/>
                 <field name="cliente_id"/>
             </tree>
         </field>

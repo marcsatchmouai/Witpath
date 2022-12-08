@@ -5,13 +5,8 @@ class Contratos(models.Model):
     _name = 'wp.contratos'
     _description = 'contratos'
 
-    fecha_emision = fields.Date('Fecha emision')
     fecha_inicio = fields.Date('Fecha de inicio')
     fecha_fin = fields.Date('Fecha de finalizacion')
-    estado = fields.Selection(
-        [('activo', 'Activo'),
-         ('inactivo', 'Inactivo')],
-        default='activo')
     cantidad_alumnos = fields.Integer('Cantidad Alumnos')
     importe = fields.Float('Importe')
 
