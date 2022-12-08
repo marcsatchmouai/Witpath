@@ -22,7 +22,6 @@ class Cursos(models.Model):
 
     # relaciones entre tablas
     clase_line_ids = fields.One2many('wp.clases', 'curso_id', 'Clases')
-    # alumno_line_ids = fields.One2many('wp.alumnos', 'curso_id', 'Alumnos')
     alumno_line_ids = fields.Many2many(comodel_name='wp.alumnos', string='Alumnos')
     foro_line_ids = fields.One2many('wp.foros', 'curso_id', 'Foros')
 

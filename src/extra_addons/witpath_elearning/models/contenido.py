@@ -14,6 +14,8 @@ class Contenido(models.Model):
          ('avi', 'Video'),
          ('docx', 'Actividad')],
         default='pdf')
+    contenido = fields.Binary(string='Adjuntar archivo')
+
     state = fields.Selection(
         [('activo', 'Activo'),
          ('inactivo', 'Inactivo')],

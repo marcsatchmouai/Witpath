@@ -16,6 +16,7 @@
                         <field name="orden"/>
                         <field name="titulo"/>
                         <field name="formato"/>
+                        <field name="contenido"/>
                     </group>
                 </sheet>
             </form>

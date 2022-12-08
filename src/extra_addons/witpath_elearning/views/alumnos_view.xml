@@ -21,6 +21,7 @@
                             <field name="grado"/>
                             <field name="division"/>
                             <field name="turno"/>
+                            <field name="cliente_id"/>
                         </group>
                     </group>
                 </sheet>
@@ -42,6 +43,7 @@
                 <field name="division"/>
                 <field name="turno"/>
                 <field name="state"/>
+                <field name="cliente_id"/>
             </tree>
         </field>
     </record>

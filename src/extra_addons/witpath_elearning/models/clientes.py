@@ -20,7 +20,6 @@ class Clientes(models.Model):
         default='activo', string="Estado")
 
     # relaciones entre tablas
-    # cotizacion_line_ids = fields.One2many('wp.cotizaciones', 'cliente_id', string='Cotizaciones')
     contacto_line_ids = fields.One2many('wp.contactos', 'cliente_id', string='Contactos')
     alumno_line_ids = fields.One2many('wp.alumnos', 'cliente_id', string='Alumnos')
 
