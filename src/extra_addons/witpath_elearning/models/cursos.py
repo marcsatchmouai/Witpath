@@ -6,9 +6,8 @@ class Cursos(models.Model):
     _description = 'cursos'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    image = fields.Binary(string="Imagen")
-    name = fields.Char(string="Nombre", required=True, tracking=True)
-    titulo = fields.Char(string="Titulo", required=True)
+    image = fields.Binary(string="Imagen", attachment=True)
+    name = fields.Char(string="Titulo", required=True, tracking=True)
     subtitulo = fields.Char(string="Subtitulo", required=True)
     tema = fields.Char(string="Tema", required=True)
     descripcion = fields.Char(string="Descripcion", required=True)

@@ -34,6 +34,7 @@
         'views/menu_view.xml',
         'security/witpath_security.xml',
         'security/ir.model.access.csv'
+
     ],
     'demo': [
         'demo/demo.xml'

@@ -10,7 +10,15 @@ class Contratos(models.Model):
     cantidad_alumnos = fields.Integer('Cantidad Alumnos')
     importe = fields.Float('Importe')
 
+    cliente = fields.Char(string='Cliente')
+    cuit = fields.Char(string='Cuit', readonly=True)
+    direccion = fields.Char(string='Direccion', readonly=True)
+    telefono = fields.Char(string='Telefono', readonly=True)
+    email = fields.Char(string='Email', readonly=True)
+
     # relaciones entre tablas
     cliente_id = fields.Many2one(comodel_name='wp.clientes', string='Cliente')
     cotizacion_id = fields.Many2one(comodel_name='wp.cotizaciones', string='Cotizacion')
 
+    def btn_get_context(self):
+        print(self._context['cot_id'])

@@ -7,7 +7,6 @@ class Cotizaciones(models.Model):
     _description = 'cotizaciones'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    # nro_cotizacion = fields.Char(string="Nro. Cotizacion", readonly=True, required=True, copy=False, default='New')
     id = fields.Integer(string='Nro. Cotizacion', readonly=True)
     fecha_emision = fields.Date('Fecha emision', default=datetime.today(), readonly=True)
     fecha_aceptacion = fields.Date('Fecha de aceptacion')
@@ -97,17 +96,32 @@ class Cotizaciones(models.Model):
     def btn_cancelar(self):
         self.state = 'cancelada'
 
-    def btn_ver_contrato(self):
+    def btn_ver_contrato(self, context=None):
         dic = {
             'fecha_inicio': self.fecha_aceptacion,
             'fecha_fin': self.fecha_emision,
             'cantidad_alumnos': self.cantidad_alumnos,
             'importe': self.total,
             'cliente_id': self.cliente_id,
-            'cotizacion_id': self.id
+            'cotizacion_id': self.id,
+            'cliente': self.cliente.name,
+            'cuit': self.cuit,
+            'direccion': self.direccion,
+            'telefono': self.telefono,
+            'email': self.email
         }
         self.env['wp.contratos'].create(dic)
-        print("Contrato")
+        # ref `module_name.report_id` as reference.
+        return {
+            'type': 'ir.actions.act_window',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_model': 'wp.contratos',  # name of respective model,
+            'target': 'new',
+            'view_id': self.env.ref('wp.contrato').id,
+            'context': {'cot_id': self.id},
+        }
+
 
     # @api.model
     # def create(self, vals):

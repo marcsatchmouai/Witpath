@@ -7,7 +7,15 @@
         <field name="arch" type="xml">
             <form string="Contratos">
                 <sheet>
+                    <button name="btn_get_context" string="Ver Contrato" type="object"
+                                class="oe_highlight"/>
                     <group>
+                        <group name="group_left">
+                            <field name="cuit"/>
+                            <field name="direccion"/>
+                            <field name="telefono" widget="phone"/>
+                            <field name="email" widget="email"/>
+                        </group>
                         <group>
                             <field name="fecha_inicio"/>
                             <field name="fecha_fin"/>

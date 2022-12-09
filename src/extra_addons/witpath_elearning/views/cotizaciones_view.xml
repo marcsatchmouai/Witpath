@@ -10,8 +10,7 @@
                     <header>
                         <button name="btn_cancelar" string="Cancelar" type="object" states="pendiente"
                                 class="oe_highlight"/>
-                        <button name="btn_ver_contrato" string="Ver Contrato" type="object"
-                                states="aceptada"
+                        <button name="btn_ver_contrato" string="Ver Contrato" type="object" states="aceptada"
                                 class="oe_highlight"/>
                         <field name="state" widget="statusbar"/>
                     </header>
@@ -24,8 +23,8 @@
                                 ('state', '=', 'aceptada'), ('state', '=', 'vencida')]}" force_save="1"/>
                             <field name="cuit"/>
                             <field name="direccion"/>
-                            <field name="telefono"/>
-                            <field name="email"/>
+                            <field name="telefono" widget="phone"/>
+                            <field name="email" widget="email"/>
                         </group>
                         <group  name="group_right">
                             <field name="fecha_emision"/>
