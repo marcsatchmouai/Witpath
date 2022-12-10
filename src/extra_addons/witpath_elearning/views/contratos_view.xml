@@ -7,8 +7,8 @@
         <field name="arch" type="xml">
             <form string="Contratos">
                 <sheet>
-                    <button name="btn_get_context" string="Ver Contrato" type="object"
-                                class="oe_highlight"/>
+                    <!--<button name="btn_get_context" string="Ver Contrato" type="object"
+                                class="oe_highlight"/>-->
                     <group>
                         <group name="group_left">
                             <field name="cuit"/>
@@ -21,7 +21,6 @@
                             <field name="fecha_fin"/>
                             <field name="cantidad_alumnos"/>
                             <field name="importe"/>
-                            <field name="cotizacion_id"/>
                         </group>
                     </group>
                 </sheet>
@@ -39,7 +38,6 @@
                 <field name="fecha_fin"/>
                 <field name="cantidad_alumnos"/>
                 <field name="importe"/>
-                <field name="cotizacion_id"/>
             </tree>
         </field>
     </record>

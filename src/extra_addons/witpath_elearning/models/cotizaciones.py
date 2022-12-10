@@ -97,7 +97,7 @@ class Cotizaciones(models.Model):
     def btn_cancelar(self):
         self.state = 'cancelada'
 
-    def btn_ver_contrato(self):
+    def btn_emitir_contrato(self):
         # Creo diccionario para guardar registro del contrato
         dic = {
             'fecha_inicio': self.fecha_aceptacion,
@@ -115,15 +115,19 @@ class Cotizaciones(models.Model):
         # Guardo el registro
         self.env['wp.contratos'].create(dic)
         # Abro el act_window
+        # return {
+        #     'type': 'ir.actions.act_window',
+        #     'view_type': 'form',
+        #     'view_mode': 'form',
+        #     'res_model': 'wp.contratos',  # name of respective model,
+        #     'target': 'new',
+        #     'context': {'cot_id': self.id},
+        # }
         return {
-            'type': 'ir.actions.act_window',
-            'view_type': 'form',
-            'view_mode': 'form',
-            'res_model': 'wp.contratos',  # name of respective model,
-            'target': 'new',
-            'context': {'cot_id': self.id},
+            'warning': {
+                'title': 'Contrato',
+                'message': 'Se emitio el contrato para la cotizacion'}
         }
-
         # 'view_id': self.env.ref('wp.contratos').id,
 
     # @api.model
