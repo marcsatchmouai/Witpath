@@ -21,4 +21,14 @@ class Contratos(models.Model):
     cotizacion_id = fields.Many2one(comodel_name='wp.cotizaciones', string='Cotizacion')
 
     def btn_get_context(self):
-        print(self._context['cot_id'])
+        cont = self.search_read([('cotizacion_id', '=', self._context['cot_id'])])
+        print(cont[0]['id'])
+        self.importe = cont[0]['importe']
+
+    @api.model
+    def default_get(self):
+        cont = self.search_read([('cotizacion_id', '=', self._context['cot_id'])])
+        # print(cont[0]['id'])
+        res = super()
+        res.update(cont[0])
+        return res

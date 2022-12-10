@@ -40,17 +40,17 @@
                         </page>
                         <page name="public" string="Clases">
                            <group>
-                                <field name="clase_line_ids"/>
+                                <field name="clase_line_ids" nolabel="1"/>
                            </group>
                         </page>
                         <page name="public" string="Alumnos">
                            <group>
-                                <field name="alumno_line_ids"/>
+                                <field name="alumno_line_ids" nolabel="1"/>
                            </group>
                         </page>
                         <page name="public" string="Foros">
                            <group>
-                                <field name="foro_line_ids"/>
+                                <field name="foro_line_ids" nolabel="1"/>
                            </group>
                         </page>
                     </notebook>
@@ -80,7 +80,7 @@
                 <field name="horario_inicio" optional="hide"/>
                 <field name="horario_finalizacion" optional="hide"/>
                 <field name="precio"/>
-                <field name="state" widget="badge" decoration-info="state == 'inactivo'"
+                <field name="state" widget="badge" decoration-danger="state == 'inactivo'"
                        decoration-success="state == 'activo'"/>
             </tree>
         </field>

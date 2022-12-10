@@ -53,6 +53,14 @@
                                 </group>
                             </sheet>
                         </page>
+                        <page name="public" string="Contrato" attrs="{'invisible': ['|',('state', '=', 'cancelada'),
+                                ('state', '=', 'vencida')]}">
+                            <sheet>
+                                <field name="contrato_line_ids"  nolabel="1"
+                                            attrs="{'readonly': ['|',('state', '=', 'cancelada'),
+                                ('state', '=', 'aceptada'), ('state', '=', 'vencida')]}" force_save="1"/>
+                            </sheet>
+                        </page>
                     </notebook>
                     <div class="oe_chatter">
                         <field name="message_follower_ids"/>

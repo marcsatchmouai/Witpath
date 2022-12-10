@@ -33,9 +33,9 @@
             <tree string="Foros">
                 <field name="orden"/>
                 <field name="titulo"/>
-                <field name="state" widget="badge" decoration-info="state == 'inactivo'" decoration-success="state == 'activo'"/>
                 <field name="descripcion"/>
                 <field name="clase_id"/>
+                <field name="state" widget="badge" decoration-info="state == 'inactivo'" decoration-success="state == 'activo'"/>
             </tree>
         </field>
     </record>

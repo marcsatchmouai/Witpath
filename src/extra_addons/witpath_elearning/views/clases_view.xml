@@ -32,7 +32,8 @@
                 <field name="name"/>
                 <field name="orden"/>
                 <field name="duracion" widget="float_time"/>
-                <field name="state"/>
+                <field name="state" widget="badge" decoration-danger="state == 'inactivo'"
+                       decoration-success="state == 'activo'"/>
             </tree>
         </field>
     </record>
