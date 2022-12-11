@@ -15,11 +15,12 @@ class Cotizaciones(models.Model):
         [('pendiente', 'Pendiente'),
          ('aceptada', 'Aceptada'),
          ('vencida', 'Vencida'),
-         ('cancelada', 'Cancelada')],
+         ('cancelada', 'Cancelada'),
+         ('contratada', 'Contratada')],
         default='pendiente')
     cantidad_cursos = fields.Integer('Cantidad Cursos')
     cantidad_alumnos = fields.Integer('Cantidad Alumnos')
-    importe = fields.Float('Importe')
+    importe = fields.Float('Importe ($)')
     iva = fields.Float('IVA (21%)')
     total = fields.Float('Total')
     descuento = fields.Float('Descuento (%)')
@@ -114,26 +115,9 @@ class Cotizaciones(models.Model):
         }
         # Guardo el registro
         self.env['wp.contratos'].create(dic)
-        # Abro el act_window
-        # return {
-        #     'type': 'ir.actions.act_window',
-        #     'view_type': 'form',
-        #     'view_mode': 'form',
-        #     'res_model': 'wp.contratos',  # name of respective model,
-        #     'target': 'new',
-        #     'context': {'cot_id': self.id},
-        # }
+        self.state = 'contratada'
         return {
             'warning': {
                 'title': 'Contrato',
                 'message': 'Se emitio el contrato para la cotizacion'}
         }
-        # 'view_id': self.env.ref('wp.contratos').id,
-
-    # @api.model
-    # def create(self, vals):
-    #    obj = super(Cotizaciones, self).create(vals)
-    #    if obj.nro_cotizacion == 'New':
-    #        number = self.env['ir.sequence'].next_by_code('seq.cotizaciones') or 'New'
-    #        obj.write({'nro_cotizacion': number})
-    #    return obj

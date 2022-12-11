@@ -8,7 +8,8 @@
             <form string="Alumnos">
                 <sheet>
                     <header>
-                        <button name="btn_activar" string="Activar" type="object" states="inactivo" class="oe_highlight"/>
+                        <button name="btn_activar" string="Activar" type="object"
+                                states="inactivo" class="oe_highlight"/>
                         <button name="btn_desactivar" string="Desactivar" type="object" states="activo"/>
                         <field name="state" widget="statusbar" />
                     </header>
@@ -43,7 +44,8 @@
                 <field name="division"/>
                 <field name="turno"/>
                 <field name="cliente_id"/>
-                <field name="state" widget="badge" decoration-info="state == 'inactivo'" decoration-success="state == 'activo'"/>
+                <field name="state" widget="badge" decoration-info="state == 'inactivo'"
+                       decoration-success="state == 'activo'"/>
             </tree>
         </field>
     </record>

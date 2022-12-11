@@ -8,8 +8,10 @@
             <form string="Foros">
                 <sheet>
                     <header>
-                        <button name="btn_activar" string="Activar" type="object" states="inactivo" class="oe_highlight"/>
-                        <button name="btn_desactivar" string="Desactivar" type="object" states="activo"/>
+                        <button name="btn_activar" string="Activar" type="object"
+                                states="inactivo" class="oe_highlight"/>
+                        <button name="btn_desactivar" string="Desactivar" type="object"
+                                states="activo"/>
                         <field name="state" widget="statusbar" />
                     </header>
                     <group>
@@ -35,7 +37,8 @@
                 <field name="titulo"/>
                 <field name="descripcion"/>
                 <field name="clase_id"/>
-                <field name="state" widget="badge" decoration-info="state == 'inactivo'" decoration-success="state == 'activo'"/>
+                <field name="state" widget="badge" decoration-info="state == 'inactivo'"
+                       decoration-success="state == 'activo'"/>
             </tree>
         </field>
     </record>

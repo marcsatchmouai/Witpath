@@ -10,7 +10,8 @@
                     <header>
                         <button name="btn_cancelar" string="Cancelar" type="object" states="pendiente"
                                 class="oe_highlight"/>
-                        <button name="btn_emitir_contrato" string="Emitir Contrato" type="object" states="aceptada"
+                        <button name="btn_emitir_contrato" string="Emitir Contrato" type="object"
+                                states="aceptada"
                                 class="oe_highlight"/>
                         <field name="state" widget="statusbar"/>
                     </header>
@@ -19,8 +20,12 @@
                     </group>
                     <group>
                         <group name="group_left">
-                            <field name="cliente"  attrs="{'readonly': ['|',('state', '=', 'cancelada'),
-                                ('state', '=', 'aceptada'), ('state', '=', 'vencida')]}" force_save="1"/>
+                            <field name="cliente"  attrs="{'readonly': ['|','|','|',
+                                ('state', '=', 'cancelada'),
+                                ('state', '=', 'aceptada'),
+                                ('state', '=', 'vencida'),
+                                ('state', '=', 'contratada')]}" force_save="1"/>
+
                             <field name="cuit"/>
                             <field name="direccion"/>
                             <field name="telefono" widget="phone"/>
@@ -29,8 +34,12 @@
                         <group  name="group_right">
                             <field name="fecha_emision"/>
                             <field name="fecha_vigencia" readonly="1" force_save="1"/>
-                            <field name="fecha_aceptacion" attrs="{'readonly': ['|',('state', '=', 'cancelada'),
-                                ('state', '=', 'aceptada'), ('state', '=', 'vencida')]}" force_save="1"/>
+                            <field name="fecha_aceptacion" attrs="{'readonly': ['|','|','|',
+                                ('state', '=', 'cancelada'),
+                                ('state', '=', 'aceptada'),
+                                ('state', '=', 'vencida'),
+                                ('state', '=', 'contratada')]}" force_save="1"/>
+
                             <field name="cantidad_cursos" readonly="1" force_save="1"/>
                             <field name="cantidad_alumnos" readonly="1" force_save="1"/>
                         </group>
@@ -39,28 +48,35 @@
                         <page name="public" string="Detalle">
                             <sheet>
                                 <group>
-                                    <field name="cotizacion_detalle_line_ids"  nolabel="1"
-                                            attrs="{'readonly': ['|',('state', '=', 'cancelada'),
-                                ('state', '=', 'aceptada'), ('state', '=', 'vencida')]}" force_save="1"/>
+                                     <field name="cotizacion_detalle_line_ids"  nolabel="1"
+                                            attrs="{'readonly': ['|','|','|',
+                                                ('state', '=', 'cancelada'),
+                                                ('state', '=', 'aceptada'),
+                                                ('state', '=', 'vencida'),
+                                                ('state', '=', 'contratada')]}" force_save="1"/>
                                 </group>
                                 <group class="oe_subtotal_footer oe_right" >
                                     <field name="importe" readonly="1" force_save="1"/>
-                                    <field name="descuento"  attrs="{'readonly': ['|',('state', '=', 'cancelada'),
-                                ('state', '=', 'aceptada'), ('state', '=', 'vencida')]}" force_save="1"/>
+                                     <field name="descuento"  attrs="{'readonly': ['|','|','|',
+                                            ('state', '=', 'cancelada'),
+                                            ('state', '=', 'aceptada'),
+                                            ('state', '=', 'vencida'),
+                                            ('state', '=', 'contratada')]}" force_save="1"/>
                                     <field name="iva" readonly="1" force_save="1"/>
                                     <field name="total" class="oe_subtotal_footer_separator" readonly="1"
                                            force_save="1"/>
                                 </group>
                             </sheet>
                         </page>
-                        <page name="public" string="Contrato" attrs="{'invisible': ['|',('state', '=', 'cancelada'),
+                        <page name="public" string="Contrato" attrs="{'invisible': ['|','|','|',
+                                ('state', '=', 'cancelada'),
                                 ('state', '=', 'pendiente'),
-                                ('state', '=', 'vencida')]}">
+                                ('state', '=', 'vencida'),
+                                ('state', '=', 'aceptada')]}">
                             <sheet>
                                 <field name="contrato_line_ids"  nolabel="1"
-                                            attrs="{'readonly': ['|',('state', '=', 'cancelada'),
-                                ('state', '=', 'aceptada'), ('state', '=', 'vencida')]}"
-                                       domain="[('cotizacion_id','=', 'id')]" force_save="1"/>
+                                       domain="[('cotizacion_id','=', 'id')]"
+                                       attrs="{'readonly': [('state', '=', 'contratada')]}" force_save="1"/>
                             </sheet>
                         </page>
                     </notebook>
@@ -79,19 +95,23 @@
         <field name="name">cotizaciones.tree.view</field>
         <field name="model">wp.cotizaciones</field>
         <field name="arch" type="xml">
-            <tree string="Cotizaciones" decoration-info="state == 'pendiente'"
+            <tree string="Cotizaciones"
+                  decoration-primary="state == 'pendiente'"
                   decoration-success="state == 'aceptada'"
                   decoration-danger="state == 'vencida'"
-                  decoration-muted="state == 'cancelada'">
+                  decoration-muted="state == 'cancelada'"
+                  decoration-info="state == 'contratada'">
                 <field name="id"/>
                 <field name="cliente" widget="selection"/>
                 <field name="fecha_emision"/>
                 <field name="fecha_vigencia"/>
                 <field name="fecha_aceptacion"/>
-                <field name="state" widget="badge" decoration-info="state == 'pendiente'"
+                <field name="state" widget="badge"
+                       decoration-primary="state == 'pendiente'"
                        decoration-success="state == 'aceptada'"
                        decoration-danger="state == 'vencida'"
-                       decoration-muted="state == 'cancelada'"/>
+                       decoration-muted="state == 'cancelada'"
+                       decoration-info="state == 'contratada'"/>
                 <field name="cantidad_cursos"/>
                 <field name="cantidad_alumnos"/>
                 <field name="importe"/>
