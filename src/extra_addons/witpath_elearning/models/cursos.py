@@ -29,7 +29,3 @@ class Cursos(models.Model):
 
     def btn_desactivar(self):
         self.state = 'inactivo'
-
-    # restricciones sql
-    _sql_constraints = [('name_uniq', 'unique(name)', 'El nombre ya existe')]
-

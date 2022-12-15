@@ -17,9 +17,6 @@ class Foros(models.Model):
     clase_id = fields.Many2one(comodel_name='wp.clases', string='Clase')
     curso_id = fields.Many2one(comodel_name='wp.cursos', string='Curso')
 
-    # restricciones sql
-    _sql_constraints = [('foro_orden_uniq', 'unique(orden)', 'El numero de orden ya existe')]
-
     def btn_activar(self):
         self.state = 'activo'
 

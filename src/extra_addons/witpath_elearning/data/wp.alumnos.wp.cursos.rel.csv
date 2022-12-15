@@ -1,4 +1,4 @@
-wp.cursos_id,wp.alumnos_id
+wp.cursos.id,wp.alumnos.id
 1,1
 1,2
 1,3

@@ -17,9 +17,6 @@ class Clases(models.Model):
     curso_id = fields.Many2one(comodel_name='wp.cursos', string='Curso')
     contenido_line_ids = fields.One2many('wp.contenido', 'clase_id', string='Contenido')
 
-    # restricciones sql
-    _sql_constraints = [('clase_orden_uniq', 'unique(orden)', 'El orden ya existe')]
-
     def btn_activar(self):
         self.state = 'activo'
 

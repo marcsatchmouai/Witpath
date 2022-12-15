@@ -20,6 +20,16 @@
 
     # always loaded
     'data': [
+        'data/wp.cursos.csv',
+        'data/wp.alumnos.csv',
+        'data/wp.alumnos.wp.cursos.rel.csv',
+        'data/wp.clases.csv',
+        'data/wp.contactos.csv',
+        'data/wp.contenido.csv',
+        'data/wp.contratos.csv',
+        'data/wp.cotizaciones.csv',
+        'data/wp.cotizaciones_detalle.csv',
+        'data/wp.foros.csv',
         'data/sequence.xml',
         'views/alumnos_view.xml',
         'views/clases_view.xml',

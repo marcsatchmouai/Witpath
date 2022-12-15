@@ -27,6 +27,5 @@
             <!-- <field name="contacto_line_ids"></field> -->
             <!-- <field name="alumno_line_ids"></field> -->
         </record>
-
     </data>
 </odoo>
